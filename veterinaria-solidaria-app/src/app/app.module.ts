@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { SharedModule } from './shared/shared.module';
+import { ComprasComponent } from './compras/compras.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VentasComponent
+    VentasComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,
