@@ -1,0 +1,33 @@
+
+body{
+    font-family: Arial, Helvetica;
+    background: #e8e8e8;
+}
+
+
+
+h1{
+    text-align: center;
+    background: #25FDAA;
+}
+
+th {
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    background: #25FDAA;
+    
+}
+
+td {
+    padding: 0.4rem !important;
+}
+body>div {
+    box-shadow: 10px 10px 8px #25FDAA;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+
+
+
+
