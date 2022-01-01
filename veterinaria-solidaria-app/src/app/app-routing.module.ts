@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VentasComponent } from './ventas/ventas.component';
-import { ComprasComponent } from './compras/compras.component';
+import { VenderComponent } from './vender/vender.component';
 
 const routes: Routes = [
   {
-    path:'ventas',
-    component: VentasComponent
+    path:'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
   },
   {
-    path: 'compras',
-    component: ComprasComponent
+    path: 'vender',
+    component: VenderComponent
   },
   {
     path: '**',
-    redirectTo: 'ventas'
+    redirectTo: 'admin'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
