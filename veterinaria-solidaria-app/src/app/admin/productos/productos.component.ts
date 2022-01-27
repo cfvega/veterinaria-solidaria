@@ -3,13 +3,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-ventas',
-  templateUrl: './ventas.component.html',
-  styleUrls: ['./ventas.component.css']
+  selector: 'app-productos',
+  templateUrl: './productos.component.html',
+  styleUrls: ['./productos.component.css']
 })
-export class VentasComponent implements OnInit, AfterViewInit {
+export class ProductosComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['idventa', 'fecha', 'total', 'formapago','ntransaccion'];
+  displayedColumns: string[] = ['codigoprod', 'tipo', 'nombreprod', 'precio','stock','descripcion'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

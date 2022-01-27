@@ -1,1 +1,182 @@
-<p>vender works!</p>
+
+<div class="container">
+    <form [formGroup]="personaForm" (ngSubmit)="personaSubmit()">
+    
+        <div class="row">
+
+            <div class="col-12 col-lg-8 bg-white" >
+                <div class="row">
+                    
+                    <div class="col-12">
+                            <table>
+                                
+                                    
+                                    <label class="form-label">Cliente</label>
+                                        <select class="form-select" >
+                                            <option></option>
+                                        </select>
+                                        <br>
+                                        
+                        
+                                        <div class="input-group mb-3">
+                                            <li for="rut" class="input-group-text" >Rut</li>
+                                            <input id="rut" type="text" class="form-control" placeholder="RUT..." formControlName="rut" >
+
+                                            <li for="nombre" class="input-group-text" >Nombre</li>
+                                            <input id="nombre" type="text" class="form-control" placeholder="Nombre..." formControlName="nombre">
+
+                                     
+                                        </div>
+                        
+                    
+                        
+                                            <div class="input-group mb-3">
+
+                                                <li for="apellidop" class="input-group-text" >Apellido P.</li>
+                                                <input id="apellidop" type="text" class="form-control" placeholder="Apellido paterno..." formControlName="apellidop" >
+
+                                                <li for="apellidom" class="input-group-text" >Apellido M.</li>
+                                                <input id="apellidom" type="text" class="form-control" placeholder="Apellido materno..." formControlName="apellidom">
+   
+                                            </div>
+
+                                                <div class="input-group mb-3">
+
+                                                    <li for="telefono" class="input-group-text" >Tel. Cliente</li>
+                                                    <input id="telefono" type="text" class="form-control" placeholder="Teléfono..." formControlName="telefono"> 
+
+                                                    <li for="direccion" class="input-group-text" >D.Cliente</li>
+                                                    <input id="direccion" type="text" class="form-control" placeholder="Dirección..." formControlName="direccion">
+                                                
+                                                    
+                                                </div>
+                                   
+
+                                        <label  class="form-label">Sector Cliente</label>
+                                        <select  class="form-select" formControlName="sector">
+                                            <option value="sector">Pichidegua Centro</option>
+                                        </select>
+                                        <br>
+                                    
+                            </table>
+                            <br>
+                            
+                    </div>
+                    
+                        <div class="col bg-white">
+                               
+                                <table>
+                                    
+                                    <tr align="center"  >
+                                        <th>Id</th>   
+                                        <th>Cantidad</th>
+                                        <th>Productos</th>
+                                        <th>P.Unit</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                
+                                    <tr *ngFor="let e of productos">
+                                        <td>{{e.id}}</td>
+                                        <td>{{e.cantidad}}</td>
+                                        <td>{{e.nproducto}}</td>
+                                        <td>{{e.precio}}</td>
+                                        <td></td>
+                                    </tr>
+                                
+                                <br>                                    
+                                </table>    
+                                <br>
+                                <button type="button" class="btn btn-primary">Agregar producto</button>
+                                
+                                <form [formGroup]="productoForm" (ngSubmit)="add()"><br>
+                                    <table>
+                                        <div class="input-group mb-3">
+                                            <li for="id" class="input-group-text">Id:</li>
+                                            <input id="id" type="text" class="form-control" formControlName="id" placeholder="Id...">
+                                    
+                                            <li for="nproducto" class="input-group-text">Nombre producto:</li>
+                                            <input id="nproducto" type="text" class="form-control" formControlName="nproducto" placeholder="Nombre del producto...">
+                                    
+                                        </div>
+
+                                        
+                                        <div class="input-group mb-3">
+      
+                                    
+                                            <li for="cantidad" class="input-group-text">Cantidad:</li>
+                                            <input id="cantidad" type="text" class="form-control" formControlName="cantidad" placeholder="Cantidad...">
+                                    
+                                            <li for="precio" class="input-group-text">Precio:</li>
+                                            <input id="precio" type="text" class="form-control" formControlName="precio" placeholder="Precio...">
+                                    
+                                            <button type="submit" [disabled]="!productoForm.valid" class="btn btn-primary">OK</button>
+                                        </div>
+                    
+                                    </table>
+                                </form>
+
+                        </div>
+                        
+
+                  
+
+
+                </div>        
+        </div>
+
+                <div class="col-12 col-lg-4 bg-white">
+
+                    <table>
+                        
+                        <h1>$00</h1>
+                
+                        <div class="row">
+                            
+                            <div class="col-lg-6">
+                                <label class="form-label">Documento</label>
+                                    <select class="form-select" formControlName="documento">
+                                        <option  value="boleta">Boleta</option>
+                                        <option  value="presupuesto">Presupuesto</option>
+                                    </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label" >Forma Pago</label>
+                                    <select class="form-select" formControlName="formapago">
+                                        <option value="efectivo">Efectivo</option>
+                                        <option value="redcompra">Redcompra</option>
+                                        
+                                    </select>
+                            </div>
+                        
+                        </div>
+                       
+                            <br>
+                            <br>
+                            
+                                <div class="input-group mb-3">
+                                    <li for="ntransaccion" class="input-group-text" >N°</li>
+                                    <input id="ntransaccion" type="text" class="form-control" placeholder="Número transacción..." formControlName="ntransaccion" >
+                                </div>
+                
+                                <br>
+                                
+                                <div class="row">
+
+                                    <div class="col" align="center">
+                                        <button type="submit" [disabled]="!personaForm.valid" class="btn btn-primary ">OK</button>
+                                        <button type="reset" class="btn btn-warning"> CANCELAR </button>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <br>
+
+                                <p>Loremut a dolore quasi praesentium pariatur eum ullonsequatur! Nemo, qui mollitia. Vero, noguyguyguygguybbbbybbyuibuhihiygyig strum?</p>
+                        
+                    </table> 
+                </div>
+   
+</div>
+</form>
+</div>
+

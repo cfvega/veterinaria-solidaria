@@ -1,9 +1,14 @@
-.footer {
-    width: 100vw;
-    background-color: #084474;
-    color: #fff;
-    padding: 15px;
-    position: fixed !important; 
-    bottom: 0 !important;
-    z-index: 100000;
+a{
+    text-decoration: none;
+    
 }
+
+footer{
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
