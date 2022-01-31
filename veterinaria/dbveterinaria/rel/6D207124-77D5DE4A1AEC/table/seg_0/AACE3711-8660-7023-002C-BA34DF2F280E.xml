@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AACE3711-8660-7023-002C-BA34DF2F280E" name="Compra">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>E69A94CC-9B0A-3B2F-7E60-15D281636BC5</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idcompra_" id="97F5F7B9-D323-25E1-4FBF-EEF2A42BD6C5">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>B9FA67F7-56E9-566D-AB90-2D6C28A98304</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nrofactura_" id="25C2752E-7751-053F-6494-9866E93CB54B">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>892CA513-0BA6-CACE-94FA-933EAAC510D1</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="proveedor_" id="0D6E448F-145B-C79B-DAA7-DA82050CCCEA">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>5E29148F-3113-D0FA-FC92-4BB539BB6F45</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechacompra_" id="35EF8F93-0418-0BA5-6B1C-D716D147736B">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>F69BDBE7-D1E9-DA3F-2F80-D150456AE02A</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="totalcompra_" id="79A437A8-A30D-6CDE-23B7-680303FE3DE1">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>24959941-62F2-009A-994C-0AF08E40370E</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechafactura_" id="072B7BB2-ABB0-340C-F1E2-7DED1D2641AD">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>1042F51B-F2E2-FA87-7F22-94D1080BED06</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B0025CA3-5D22-91DF-23F0-73C5640C4FE1" name="Compra_PK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>C93FA77C-7A21-0A04-C4E4-A5B35E796237</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97F5F7B9-D323-25E1-4FBF-EEF2A42BD6C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

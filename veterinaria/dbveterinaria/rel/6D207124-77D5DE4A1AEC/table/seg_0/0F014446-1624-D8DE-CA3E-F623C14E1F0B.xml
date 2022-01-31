@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F014446-1624-D8DE-CA3E-F623C14E1F0B" name="DetalleCompra">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>CCDF3D32-2EDA-618D-6F41-8E3CDF1B13DD</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idcompra_" id="0C8C8E54-51A9-D761-FA30-3CA914ED2925">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>BF839BAB-5922-96D9-56BE-E3C1BF3E79F2</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="idproducto_" id="6DFF78B8-3384-E38D-1EA0-BC7788E1EE94">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>1587A3E2-A79F-D197-7BE4-743B39B9312F</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cantidad_" id="387BAF8F-B186-D90F-6D49-B9F61019D237">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>FD70BB5D-EA1C-F727-A5FC-4B122ED03738</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="preciounitcompra_" id="928035B5-1834-AABD-334E-AC9A30DA7AD8">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>DECE4A8D-F4EF-9862-1F4E-075B11133784</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Producto_idproducto_" id="2E2AB619-4C46-74E6-09EF-1DDFC226F8AC">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>5580DAC7-EC29-16B9-FA7C-3E15EF389580</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4B9125DB-74EE-F304-4CFE-6303E9911A7C" referredColumn="DEC7B24E-F8E8-D1E9-D942-E188EC5062BA"/>
+</associations>
+</Column>
+<Column name="Compra_idcompra_" id="81875BFC-8350-309B-3C00-ED61FC5D3D6E">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>8DED1CEF-BA81-D659-C4D1-3CAE13C7A7F1</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="57FC0B64-1D70-708E-4274-EA8187BB31C5" referredColumn="97F5F7B9-D323-25E1-4FBF-EEF2A42BD6C5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B5CCB840-1B4B-2DAD-BB6C-F52ECE093C13" name="DetalleCompra_Producto_FK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>181FD3AB-6D54-FBA6-82AC-53DA700D5A5C</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E2AB619-4C46-74E6-09EF-1DDFC226F8AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BE4FF9C1-A648-7996-519B-EE5C3ABBCDA3" name="DetalleCompra_Compra_FK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>59BEFAD0-5F40-F2EF-291F-1E7702513636</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81875BFC-8350-309B-3C00-ED61FC5D3D6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

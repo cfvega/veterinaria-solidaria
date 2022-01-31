@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CCDF3D32-2EDA-618D-6F41-8E3CDF1B13DD" name="DetalleCompra">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:38:47 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idcompra_" id="BF839BAB-5922-96D9-56BE-E3C1BF3E79F2">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:39:10 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idproducto_" id="1587A3E2-A79F-D197-7BE4-743B39B9312F">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:40:24 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cantidad_" id="FD70BB5D-EA1C-F727-A5FC-4B122ED03738">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:41:13 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="preciounitcompra_" id="DECE4A8D-F4EF-9862-1F4E-075B11133784">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:42:00 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idproducto_1" id="5580DAC7-EC29-16B9-FA7C-3E15EF389580">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:50:16 UTC</createdTime>
+<generatorID>181FD3AB-6D54-FBA6-82AC-53DA700D5A5C</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<referedAttribute>D75BCDE2-F098-16A2-A545-0C295954115F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idcompra_1" id="8DED1CEF-BA81-D659-C4D1-3CAE13C7A7F1">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:51:29 UTC</createdTime>
+<generatorID>59BEFAD0-5F40-F2EF-291F-1E7702513636</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<referedAttribute>B9FA67F7-56E9-566D-AB90-2D6C28A98304</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

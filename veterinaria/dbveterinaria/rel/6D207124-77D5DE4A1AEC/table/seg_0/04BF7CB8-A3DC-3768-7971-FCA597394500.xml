@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04BF7CB8-A3DC-3768-7971-FCA597394500" name="Producto">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>9B8F7EE3-3336-16C6-7D70-0A38EEB8ECC1</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idproducto_" id="DEC7B24E-F8E8-D1E9-D942-E188EC5062BA">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>D75BCDE2-F098-16A2-A545-0C295954115F</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombreprod_" id="6D0FDE0B-8024-3832-C825-312BE5EFF9E1">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>C18FCEB4-9FAA-13AD-4FB5-B851DD99879C</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion_" id="C35D9EA6-CE0B-5303-E248-AED559674B59">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>BFAC8F01-248A-1A45-FD26-FC917494F982</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="precioprod_" id="B6D02BA6-AD11-F268-964C-1E8EE572EC59">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>50EDCE26-496D-8EB2-BAA9-4668325829C8</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_" id="E525E78F-A4C7-20A9-F07B-68363CDE7A3F">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>1F49F778-8779-6E18-EFD1-3D291D3CAC20</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stock_" id="6C528FAC-28C0-6777-FCFA-62917136CE1F">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>8DFBFCC6-F293-5AF8-5943-F8FA2B66B551</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6C84537-E744-54AB-1CCC-51D945A4AF4D" name="Producto_PK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>3CC21F93-C46A-F239-E022-C57A39C12E9D</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEC7B24E-F8E8-D1E9-D942-E188EC5062BA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="dbveterinaria" id="41741166-C4C1-AFFD-A9EB-EB4EE9801582" version="3.5">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:13:21 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>41741166-C4C1-AFFD-A9EB-EB4EE9801582</designId>
+</OSDM_Design>

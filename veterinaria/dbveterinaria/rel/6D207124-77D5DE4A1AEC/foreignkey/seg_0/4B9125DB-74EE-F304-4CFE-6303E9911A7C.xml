@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4B9125DB-74EE-F304-4CFE-6303E9911A7C" containerWithKeyObject="0F014446-1624-D8DE-CA3E-F623C14E1F0B" localFKIndex="B5CCB840-1B4B-2DAD-BB6C-F52ECE093C13" name="DetalleCompra_Producto_FK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:53:18 UTC</createdTime>
+<generatorID>181FD3AB-6D54-FBA6-82AC-53DA700D5A5C</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<referredTableLongName>Producto</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>04BF7CB8-A3DC-3768-7971-FCA597394500</referredTableID>
+<keyObject>F6C84537-E744-54AB-1CCC-51D945A4AF4D</keyObject>
+<referredKeyID>F6C84537-E744-54AB-1CCC-51D945A4AF4D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idproducto_</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

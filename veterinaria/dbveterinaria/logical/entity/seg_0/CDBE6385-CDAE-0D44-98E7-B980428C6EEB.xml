@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CDBE6385-CDAE-0D44-98E7-B980428C6EEB" name="Cliente">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:17:22 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="rutcliente_" id="4AA4A5A7-045D-F09C-7968-54B569FCFA91">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:17:34 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombrecli_" id="F932A6F6-87F8-0622-B155-156906784688">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:18:09 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellidopat_" id="5DA17CF4-DD37-D44D-98A8-F9A701050042">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:18:29 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellidomat_" id="1BB3B1D3-2645-2855-1BE3-C2C7B0ACDC22">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:19:15 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechanac_" id="B071716B-A02B-F3C4-66A9-16FA28D32A8B">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:19:41 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="direccion_" id="5DAA08A9-60C2-A4FE-BD08-2B33C51C128D">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:20:40 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono_" id="8E3407F9-806C-E2E8-3C8D-2CA101104B28">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:21:02 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email_" id="65B37D04-E068-1BB7-9C27-0505CD8ACD78">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:21:34 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="55A6A614-FA7A-718C-9205-1B9C274A9575" name="Cliente PK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:18:06 UTC</createdTime>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6D207124-F39E-58F3-3A3A-77D5DE4A1AEC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4AA4A5A7-045D-F09C-7968-54B569FCFA91</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

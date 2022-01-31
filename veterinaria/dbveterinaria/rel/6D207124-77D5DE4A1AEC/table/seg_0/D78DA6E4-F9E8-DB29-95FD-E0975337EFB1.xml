@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D78DA6E4-F9E8-DB29-95FD-E0975337EFB1" name="Cliente">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>CDBE6385-CDAE-0D44-98E7-B980428C6EEB</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rutcliente_" id="63BE5AE2-9BD0-3F83-92A9-7A8EC66A1D6B">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>4AA4A5A7-045D-F09C-7968-54B569FCFA91</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombrecli_" id="EB6A0BA8-11C2-2015-44E1-12E71FD85962">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>F932A6F6-87F8-0622-B155-156906784688</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellidopat_" id="DD03EB9E-2691-6534-5023-1C1673D4BB5D">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>5DA17CF4-DD37-D44D-98A8-F9A701050042</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellidomat_" id="A8EAFFB9-E611-EBA1-DDD7-99E1EA0B656C">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>1BB3B1D3-2645-2855-1BE3-C2C7B0ACDC22</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechanac_" id="5FD0565C-5A43-53B4-883E-C8650DB0E51C">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>B071716B-A02B-F3C4-66A9-16FA28D32A8B</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion_" id="214992A0-006E-0812-E34C-F488B97C17B2">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>5DAA08A9-60C2-A4FE-BD08-2B33C51C128D</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono_" id="99D5D186-43D8-615B-F431-EC3F63B3D37A">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>8E3407F9-806C-E2E8-3C8D-2CA101104B28</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email_" id="086C0B4B-6921-6FA2-2550-9A7F05BE5880">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>65B37D04-E068-1BB7-9C27-0505CD8ACD78</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A59AB764-0EF7-AA04-E001-5FD9DB314E11" name="Cliente_PK">
+<createdBy>Basty</createdBy>
+<createdTime>2021-12-06 13:32:37 UTC</createdTime>
+<generatorID>55A6A614-FA7A-718C-9205-1B9C274A9575</generatorID>
+<ownerDesignName>dbveterinaria</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63BE5AE2-9BD0-3F83-92A9-7A8EC66A1D6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
