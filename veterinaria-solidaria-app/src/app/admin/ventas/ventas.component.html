@@ -1,4 +1,65 @@
+<div id="todo" class="ng-container-xxl">
+
 <h1>Administrar Ventas</h1>
+
+  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#agrega" (click)="mostrarcrearformulario()">
+    + Agregar Venta
+  </button>
+
+
+ 
+<div class="modal fade" id="agrega" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregaLabel">Agregar venta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="crearventaForm" *ngIf="true" (ngSubmit)="crea()"><br>
+          <table>
+
+            <div class="input-group mb-3">
+              <li for="fechaventa" class="input-group-text">Fecha:</li>
+              <input id="fechaventa" type="text" class="form-control" formControlName="fechaventa" placeholder="Fecha Venta...">
+          </div>
+
+              <div class="input-group mb-3">
+                  <li for="totalventa" class="input-group-text">Fecha Venta:</li>
+                  <input id="totalventa" type="text" class="form-control" formControlName="totalventa" placeholder="Total Venta...">
+              </div>
+                 
+                  <div class="input-group mb-3">
+                    <li for="formapago" class="input-group-text">Forma Pago:</li>
+                    <input id="formapago" type="text" class="form-control" formControlName="formapago" placeholder="Forma Pago...">
+                  </div>
+
+                    <div class="input-group mb-3">
+                      <li for="nrotransaccion" class="input-group-text">N° Transacción:</li>
+                      <input id="nrotransaccion" type="text" class="form-control" formControlName="nrotransaccion" placeholder="N° transacción...">
+
+                      <button type="submit" [disabled]="!crearventaForm.valid" class="btn btn-primary" (click)="crear()">OK</button>
+                    </div>
+
+          </table>
+      
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrarcrearformulario()">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+
+
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
@@ -6,32 +67,32 @@
       <!-- Position Column -->
       <ng-container matColumnDef="idventa">
         <th mat-header-cell *matHeaderCellDef> Id.Venta </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let venta"> {{venta.idventa}} </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef> Fecha </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <ng-container matColumnDef="fechaventa">
+        <th mat-header-cell *matHeaderCellDef> Fecha Venta</th>
+        <td mat-cell *matCellDef="let venta"> {{venta.fechaventa}} </td>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef> Total </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      <ng-container matColumnDef="totalventa">
+        <th mat-header-cell *matHeaderCellDef> Total Venta</th>
+        <td mat-cell *matCellDef="let venta"> {{venta.totalventa}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="formapago">
         <th mat-header-cell *matHeaderCellDef> Forma de pago </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <td mat-cell *matCellDef="let venta"> {{venta.formapago}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="ntransaccion">
+      <ng-container matColumnDef="nrotransaccion">
         <th mat-header-cell *matHeaderCellDef> N° Transacción </th>
-        <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+        <td mat-cell *matCellDef="let venta"> {{venta.nrotransaccion}} </td>
       </ng-container>
-
+    
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -42,4 +103,4 @@
                    aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
-  
+</div>  

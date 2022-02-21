@@ -8,3 +8,31 @@ h1{
     text-align: center;  
     background-color: #25FDAA; 
 }
+
+th{
+    font-size: 18px;
+}
+
+button{
+    font-size: 15px;
+    padding: 5px;
+}
+
+.mat-elevation-z8 {
+    height: calc(92vh - 150px);
+    overflow-y: auto;
+}
+
+#paginacion{
+    
+    bottom: 30px;
+    
+    padding-top: 1px;
+    height: 10%;
+    
+ 
+}
+
+#todo{
+    padding: 8px;
+}

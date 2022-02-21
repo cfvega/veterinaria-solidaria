@@ -1,18 +1,156 @@
+<div id="todo" class="ng-container-xxl">
+
 <h1>Administrar Compras</h1>
+
+  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#agrega" (click)="mostrarcrearformulario()">
+    + Agregar Compra
+  </button>
+
+ 
+<div class="modal fade" id="agrega" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregaLabel">Agregar Compra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="crearcompraForm" *ngIf="true" (ngSubmit)="crea()"><br>
+          <table>
+
+              <div class="input-group mb-3">
+                  <li for="nrofactura" class="input-group-text">N° Factura:</li>
+                  <input id="nrofactura" type="text" class="form-control" formControlName="nrofactura" placeholder="N° factura...">
+              </div>
+                 
+                  <div class="input-group mb-3">
+                    <li for="proveedor" class="input-group-text">Proveedor:</li>
+                    <input id="proveedor" type="text" class="form-control" formControlName="proveedor" placeholder="Proveedor...">
+                  </div>
+
+                    <div class="input-group mb-3">
+                      <li for="fechafactura" class="input-group-text">Fecha Factura:</li>
+                      <input id="fechafactura" type="text" class="form-control" formControlName="fechafactura" placeholder="Fecha factura...">
+                    </div>
+                
+                      <div class="input-group mb-3">
+                        <li for="fechacompra" class="input-group-text">Fecha Compra:</li>
+                        <input id="fechacompra" type="text" class="form-control" formControlName="fechacompra" placeholder="Fecha Compra...">
+                      
+                        <button type="submit" [disabled]="!crearcompraForm.valid" class="btn btn-primary" (click)="crear()">OK</button>
+                      </div>
+                      
+          </table>
+      
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrarcrearformulario()">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+
+
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
   
       <!-- Id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let parameter"> {{parameter.id}} </td>
+      <ng-container matColumnDef="idcompra">
+        <th mat-header-cell *matHeaderCellDef>Id Compra</th>
+        <td mat-cell *matCellDef="let parameter"> {{parameter.idcompra}} </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let parameter"> {{parameter.name}} </td>
+      <ng-container matColumnDef="nrofactura">
+        <th mat-header-cell *matHeaderCellDef> N° Factura </th>
+        <td mat-cell *matCellDef="let parameter"> {{parameter.nrofactura}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechafactura">
+        <th mat-header-cell *matHeaderCellDef> Fecha Factura </th>
+        <td mat-cell *matCellDef="let parameter"> {{parameter.fechafactura}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechacompra">
+        <th mat-header-cell *matHeaderCellDef> Fecha Compra </th>
+        <td mat-cell *matCellDef="let parameter"> {{parameter.fechacompra}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="proveedor">
+        <th mat-header-cell *matHeaderCellDef> Proveedor </th>
+        <td mat-cell *matCellDef="let parameter"> {{parameter.proveedor}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let parameter"> 
+
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="mostrarformulario(parameter)">
+            Editar
+          </button>
+
+          <button type="button" class="btn btn-danger" (click)="delete(parameter.idcompra)">
+            Eliminar
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Editar compra</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                  <form [formGroup]="compraForm" *ngIf="true" (ngSubmit)="add()"><br>
+                    <table>
+                      <div class="input-group mb-3">
+                        <li for="nrofactura" class="input-group-text">N° Factura:</li>
+                        <input id="nrofactura" type="text" class="form-control" formControlName="nrofactura" placeholder="N° factura...">
+                    </div>
+
+                        <div class="input-group mb-3">
+                            <li for="proveedor" class="input-group-text">Proveedor:</li>
+                            <input id="proveedor" type="text" class="form-control" formControlName="proveedor" placeholder="Proveedor...">
+                        </div>
+                           
+                            <div class="input-group mb-3">
+                              <li for="fechafactura" class="input-group-text">F. Factura:</li>
+                              <input id="fechafactura" type="text" class="form-control" formControlName="fechafactura" placeholder="Fecha factura...">
+                            </div>
+
+                              <div class="input-group mb-3">
+                                <li for="fechacompra" class="input-group-text">F. Compra:</li>
+                                <input id="fechacompra" type="text" class="form-control" formControlName="fechacompra" placeholder="Fecha compra...">
+                                
+                                <button type="submit" [disabled]="!compraForm.valid" data-bs-dismiss="modal" class="btn btn-primary" (click)="update()">OK</button>
+                              </div>
+                          
+                         
+      
+                    </table>
+                </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrarformulario()">Cerrar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
       </ng-container>
 
 
@@ -20,9 +158,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    <mat-paginator id="paginacion" [pageSizeOptions]="[5, 10, 20]"
                    showFirstLastButtons 
-                   aria-label="Select page of periodic elements">
+                   aria-label="Seleción página compras">
     </mat-paginator>
   </div>
-  
+</div>

@@ -6,12 +6,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 
-export class ComprarService {
+export class VentasService {
 
+  getVentas(){
+    return this.http.get<any>("http://localhost:3000/ventas");
+  }
   
+
 
   constructor(private http:HttpClient) { 
     
+  }
+
+  crearVenta(data: any){
+    return this.http.post<any>("http://localhost:3000/ventas", data)
   }
 
   test(){

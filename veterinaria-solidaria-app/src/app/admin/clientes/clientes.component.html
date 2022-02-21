@@ -1,50 +1,202 @@
+<div id="todo" class="ng-container-xxl">
 <h1>Administrar Clientes</h1>
 
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#agrega" (click)="mostrarcrearformulario()">
+  + Agregar Cliente
+</button>
+
+<div class="modal fade" id="agrega" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="agregaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregaLabel">Agregar cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="crearclienteForm" *ngIf="true" (ngSubmit)="crea()"><br>
+          <table>
+
+            <div class="input-group mb-3">
+              <li for="rutcliente" class="input-group-text">RUT:</li>
+              <input id="rutcliente" type="text" class="form-control" formControlName="rutcliente" placeholder="Rut. Cliente...">
+          </div>
+
+              <div class="input-group mb-3">
+                  <li for="nombrecli" class="input-group-text">Nombre Cliente:</li>
+                  <input id="nombrecli" type="text" class="form-control" formControlName="nombrecli" placeholder="Nombre...">
+              </div>
+                 
+                  <div class="input-group mb-3">
+                    <li for="apellidopat" class="input-group-text">A.paterno:</li>
+                    <input id="apellidopat" type="text" class="form-control" formControlName="apellidopat" placeholder="A.paterno...">
+                  </div>
+
+                    <div class="input-group mb-3">
+                      <li for="apellidomat" class="input-group-text">A.materno:</li>
+                      <input id="apellidomat" type="text" class="form-control" formControlName="apellidomat" placeholder="A.materno...">
+                    </div>
+                
+                      <div class="input-group mb-3">
+                        <li for="fechanac" class="input-group-text">F. Nacimiento:</li>
+                        <input id="fechanac" type="text" class="form-control" formControlName="fechanac" placeholder="Fecha Nacimiento...">
+                      </div>
+                      
+                        <div class="input-group mb-3">
+                          <li for="direccion" class="input-group-text">Direccion:</li>
+                          <input id="direccion" type="text" class="form-control" formControlName="direccion" placeholder="Dirección...">
+                        </div>
+
+                          <div class="input-group mb-3">
+                            <li for="telefono" class="input-group-text">Teléfono:</li>
+                            <input id="telefono" type="text" class="form-control" formControlName="telefono" placeholder="Teléfono...">
+                          </div>
+                      
+                            <div class="input-group mb-3">                      
+                                <li for="email" class="input-group-text">E-mail:</li>
+                                <input id="email" type="text" class="form-control" formControlName="email" placeholder="Email...">
+
+                                <button type="submit" [disabled]="!crearclienteForm.valid" class="btn btn-primary" (click)="crear()">OK</button>
+                            </div>
+          </table>
+      
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrarcrearformulario()">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+
+<div  class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" >
   
-      <!-- Position Column -->
+ 
       <ng-container matColumnDef="rutcliente">
         <th mat-header-cell *matHeaderCellDef>Rut Cliente </th>
-        <td mat-cell *matCellDef="let element"> {{element.rutcliente}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.rutcliente}} </td>
       </ng-container>
   
-      <!-- Name Column -->
+     
       <ng-container matColumnDef="nombrecli">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombrecli}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nombrecli}} </td>
       </ng-container>
   
-      <!-- Weight Column -->
+    
       <ng-container matColumnDef="apellidopat">
         <th mat-header-cell *matHeaderCellDef> A.Paterno </th>
-        <td mat-cell *matCellDef="let element"> {{element.apellidopat}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.apellidopat}} </td>
       </ng-container>
   
-      <!-- Symbol Column -->
+     
       <ng-container matColumnDef="apellidomat">
         <th mat-header-cell *matHeaderCellDef> A.Materno </th>
-        <td mat-cell *matCellDef="let element"> {{element.apellidomat}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.apellidomat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="fechanac">
         <th mat-header-cell *matHeaderCellDef> F.Nacimiento </th>
-        <td mat-cell *matCellDef="let element"> {{element.fechanac}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.fechanac}} </td>
       </ng-container>
 
       <ng-container matColumnDef="direccion">
         <th mat-header-cell *matHeaderCellDef> Dirección </th>
-        <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </td>
       </ng-container>
 
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef> Teléfono </th>
-        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.telefono}} </td>
       </ng-container>
 
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> E-mail </th>
-        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let cliente" >
+
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="mostrarformulario(cliente)">
+            Editar
+          </button>
+
+          <button type="button" class="btn btn-danger" (click)="delete(cliente.rutcliente)">
+            Borrar
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Editar cliente</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                  <form [formGroup]="clienteForm" *ngIf="true" (ngSubmit)="add()"><br>
+                    <table>
+
+                        <div class="input-group mb-3">
+                            <li for="nombrecli" class="input-group-text">Nombre Cliente:</li>
+                            <input id="nombrecli" type="text" class="form-control" formControlName="nombrecli" placeholder="Nombre...">
+                        </div>
+                           
+                            <div class="input-group mb-3">
+                              <li for="apellidopat" class="input-group-text">A.paterno:</li>
+                              <input id="apellidopat" type="text" class="form-control" formControlName="apellidopat" placeholder="A.paterno...">
+                            </div>
+
+                              <div class="input-group mb-3">
+                                <li for="apellidomat" class="input-group-text">A.materno:</li>
+                                <input id="apellidomat" type="text" class="form-control" formControlName="apellidomat" placeholder="A.materno...">
+                              </div>
+                          
+                                <div class="input-group mb-3">
+                                  <li for="fechanac" class="input-group-text">F. Nacimiento:</li>
+                                  <input id="fechanac" type="text" class="form-control" formControlName="fechanac" placeholder="Fecha Nacimiento...">
+                                </div>
+                                
+                                  <div class="input-group mb-3">
+                                    <li for="direccion" class="input-group-text">Direccion:</li>
+                                    <input id="direccion" type="text" class="form-control" formControlName="direccion" placeholder="Dirección...">
+                                  </div>
+
+                                    <div class="input-group mb-3">
+                                      <li for="telefono" class="input-group-text">Teléfono:</li>
+                                      <input id="telefono" type="text" class="form-control" formControlName="telefono" placeholder="Teléfono...">
+                                    </div>
+                                
+                                      <div class="input-group mb-3">                      
+                                          <li for="email" class="input-group-text">E-mail:</li>
+                                          <input id="email" type="text" class="form-control" formControlName="email" placeholder="Email...">
+
+                                          <button type="submit" [disabled]="!clienteForm.valid" data-bs-dismiss="modal" class="btn btn-primary"  (click)="update()">OK</button>
+                                      </div>
+                    </table>
+                
+                  </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrarformulario()">Cerrar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
       </ng-container>
 
   
@@ -52,9 +204,15 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    <mat-paginator id="paginacion" [pageSizeOptions]="[5, 10, 20]"
                    showFirstLastButtons 
-                   aria-label="Select page of periodic elements">
+                   aria-label="Selección página clientes">                   
     </mat-paginator>
   </div>
+</div>
   
+  
+
+
+
+

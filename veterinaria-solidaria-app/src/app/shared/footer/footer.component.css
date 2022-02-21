@@ -1,13 +1,14 @@
 a{
     text-decoration: none;
-    
+    color: #e8e8e8;
 }
 
 footer{
-    padding: 5px;
-    
+    position: fixed;
     bottom: 0;
     width: 100%;
+    height: 30px;
+    padding: 5px;
 }
 
 

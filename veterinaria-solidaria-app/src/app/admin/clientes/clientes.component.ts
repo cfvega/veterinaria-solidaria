@@ -1,6 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ClientesService } from '../services/clientes.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-clientes',
@@ -9,52 +13,127 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ClientesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['rutcliente', 'nombrecli', 'apellidopat', 'apellidomat','fechanac','direccion','telefono','email'];
-  dataSource = new MatTableDataSource<PeriodicClientes>(ELEMENT_DATA);
+ 
+  displayedColumns: string[] = ['rutcliente', 'nombrecli', 'apellidopat', 'apellidomat','fechanac','direccion','telefono','email', 'opciones'];
+  dataSource = new MatTableDataSource<any>();
+
+  clienteForm = this.formbuilder.group({
+    rutcliente: [''],
+    nombrecli: ['', [Validators.required, Validators.maxLength(15)]],
+    apellidopat: ['', [Validators.required, Validators.maxLength(20)]],
+    apellidomat: ['', [Validators.required, Validators.maxLength(20)]],
+    fechanac: ['', [Validators.required, Validators.maxLength(20)]],
+    direccion: ['', [Validators.required, Validators.maxLength(50)]],
+    telefono: ['', [Validators.required, Validators.maxLength(20)]],
+    email: ['',[Validators.required, Validators.maxLength(50)]]
+    
+  })
+
+  crearclienteForm = this.formbuilder.group({
+    rutcliente: ['', [Validators.required, Validators.maxLength(15)]],
+    nombrecli: ['', [Validators.required, Validators.maxLength(15)]],
+    apellidopat: ['', [Validators.required, Validators.maxLength(20)]],
+    apellidomat: ['', [Validators.required, Validators.maxLength(20)]],
+    fechanac: ['', [Validators.required, Validators.maxLength(20)]],
+    direccion: ['', [Validators.required, Validators.maxLength(50)]],
+    telefono: ['', [Validators.required, Validators.maxLength(20)]],
+    email: ['',[Validators.required, Validators.maxLength(50)]]
+    
+  })
+
+  //actualizar
+  editarcliente: boolean = false;
+  mostrarformulario(cliente: any=""){
+    this.editarcliente = !this.editarcliente;
+    console.log(cliente);
+    this.clienteForm.controls["rutcliente"].setValue(cliente.rutcliente);
+    this.clienteForm.controls["nombrecli"].setValue(cliente.nombrecli);
+    this.clienteForm.controls["apellidopat"].setValue(cliente.apellidopat);
+    this.clienteForm.controls["apellidomat"].setValue(cliente.apellidomat);
+    this.clienteForm.controls["fechanac"].setValue(cliente.fechanac);
+    this.clienteForm.controls["direccion"].setValue(cliente.direccion);
+    this.clienteForm.controls["telefono"].setValue(cliente.telefono);
+    this.clienteForm.controls["email"].setValue(cliente.email);
+
+  }
+
+  //eliminar
+
+  delete(rutcliente:any){
+    this.ClientesServices.eliminar(rutcliente).subscribe(response =>{
+      console.log(response);
+      this.loadCliente();
+    })
+  }
+
+  update(){
+    this.ClientesServices.updateCliente(this.clienteForm.value).subscribe(response =>{
+      console.log(response);
+      this.loadCliente();
+    })
+  }
+
+
+  //crear
+  crearcliente: boolean = false;
+  mostrarcrearformulario(){
+    this.crearcliente = !this.crearcliente;
+  }
+
+  crear(){
+    this.ClientesServices.crearCliente(this.crearclienteForm.value).subscribe(response => {
+      console.log(response);
+      this.loadCliente();
+    })
+  }
+
+   //actualizar
+   clientes:any[] = []
+
+   add() {
+    console.log(this.clienteForm.value);
+    this.clientes.push(this.clienteForm.value);
+    this.clienteForm.reset();
+    
+   }
+
+   //crear
+   crearclientes:any[] = []
+
+   crea() {
+    console.log(this.crearclienteForm.value);
+    this.crearclientes.push(this.crearclienteForm.value);
+    this.crearclienteForm.reset();
+    
+   }
+
+
+   constructor( public ClientesServices: ClientesService, private formbuilder: FormBuilder ) { }
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() { }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-  ngOnInit(): void {
     
   }
 
-}
+  ngOnInit(): void {
+    this.loadCliente();
+  }
 
-export interface PeriodicClientes {
-  rutcliente: number;
-  nombrecli: string;
-  apellidopat: number;
-  apellidomat: string;
-  fechanac: string;
-  direccion: string;
-  telefono: string;
-  email: string;
-}
 
-const ELEMENT_DATA: PeriodicClientes[] = [
-  {rutcliente: 1, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 2, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 3, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 4, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 5, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 6, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 7, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 8, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 9, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 10, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 11, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 12, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 13, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 14, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 15, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 16, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 17, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 18, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 19, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
-  {rutcliente: 20, nombrecli: 'Hydrogen', apellidopat: 1.0079, apellidomat: 'H', fechanac:'h', direccion:'h', telefono:'h', email:'h'},
+
+  loadCliente(){
+    this.ClientesServices.getClientes().subscribe(response => {
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator = this.paginator;
+      console.log(response)
+    })
+  }
   
-];
+}
+
+
+
+
+

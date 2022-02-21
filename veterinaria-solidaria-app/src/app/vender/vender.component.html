@@ -19,11 +19,11 @@
                                         
                         
                                         <div class="input-group mb-3">
-                                            <li for="rut" class="input-group-text" >Rut</li>
-                                            <input id="rut" type="text" class="form-control" placeholder="RUT..." formControlName="rut" >
+                                            <li for="rutcliente" class="input-group-text" >Rut</li>
+                                            <input id="rutcliente" type="text" class="form-control" placeholder="RUT..." formControlName="rutcliente" >
 
-                                            <li for="nombre" class="input-group-text" >Nombre</li>
-                                            <input id="nombre" type="text" class="form-control" placeholder="Nombre..." formControlName="nombre">
+                                            <li for="nombrecli" class="input-group-text" >Nombre</li>
+                                            <input id="nombrecli" type="text" class="form-control" placeholder="Nombre..." formControlName="nombrecli">
 
                                      
                                         </div>
@@ -32,11 +32,11 @@
                         
                                             <div class="input-group mb-3">
 
-                                                <li for="apellidop" class="input-group-text" >Apellido P.</li>
-                                                <input id="apellidop" type="text" class="form-control" placeholder="Apellido paterno..." formControlName="apellidop" >
+                                                <li for="apellidopat" class="input-group-text" >Apellido P.</li>
+                                                <input id="apellidopat" type="text" class="form-control" placeholder="Apellido paterno..." formControlName="apellidopat" >
 
-                                                <li for="apellidom" class="input-group-text" >Apellido M.</li>
-                                                <input id="apellidom" type="text" class="form-control" placeholder="Apellido materno..." formControlName="apellidom">
+                                                <li for="apellidomat" class="input-group-text" >Apellido M.</li>
+                                                <input id="apellidomat" type="text" class="form-control" placeholder="Apellido materno..." formControlName="apellidomat">
    
                                             </div>
 
@@ -52,10 +52,7 @@
                                                 </div>
                                    
 
-                                        <label  class="form-label">Sector Cliente</label>
-                                        <select  class="form-select" formControlName="sector">
-                                            <option value="sector">Pichidegua Centro</option>
-                                        </select>
+                                       
                                         <br>
                                     
                             </table>
@@ -76,23 +73,23 @@
                                     </tr>
                                 
                                     <tr *ngFor="let e of productos">
-                                        <td>{{e.id}}</td>
+                                        <td>{{e.idproducto}}</td>
                                         <td>{{e.cantidad}}</td>
                                         <td>{{e.nproducto}}</td>
                                         <td>{{e.precio}}</td>
-                                        <td></td>
+                                        <td>{{e.cantidad*e.precio}}</td>
                                     </tr>
                                 
                                 <br>                                    
                                 </table>    
                                 <br>
-                                <button type="button" class="btn btn-primary">Agregar producto</button>
+                                <button type="button" class="btn btn-primary" (click)="mostrarformulario()">Agregar producto</button>
                                 
-                                <form [formGroup]="productoForm" (ngSubmit)="add()"><br>
+                                <form [formGroup]="productoForm" *ngIf="agregaproducto" (ngSubmit)="add()"><br>
                                     <table>
                                         <div class="input-group mb-3">
-                                            <li for="id" class="input-group-text">Id:</li>
-                                            <input id="id" type="text" class="form-control" formControlName="id" placeholder="Id...">
+                                            <li for="idproducto" class="input-group-text">Id:</li>
+                                            <input id="idproducto" type="text" class="form-control" formControlName="idproducto" placeholder="Id...">
                                     
                                             <li for="nproducto" class="input-group-text">Nombre producto:</li>
                                             <input id="nproducto" type="text" class="form-control" formControlName="nproducto" placeholder="Nombre del producto...">
@@ -124,7 +121,7 @@
 
                     <table>
                         
-                        <h1>$00</h1>
+                        <h1></h1>
                 
                         <div class="row">
                             

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ComprarService } from '../services/comprar.service';
+import { ComprasService } from '../services/compras.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-compras',
@@ -10,57 +12,109 @@ import { ComprarService } from '../services/comprar.service';
 })
 export class ComprasComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['idcompra', 'nrofactura', 'proveedor', 'fechafactura', 'fechacompra', 'opciones'];
   dataSource = new MatTableDataSource<any>();
+
+  compraForm = this.formbuilder.group({
+    idcompra: [''],
+    nrofactura: ['', [Validators.required, Validators.maxLength(20)]],
+    proveedor: ['', [Validators.required, Validators.maxLength(20)]],
+    fechafactura: ['', [Validators.required, Validators.maxLength(100)]],
+    fechacompra: ['', [Validators.required, Validators.maxLength(100)]]
+    
+  })
+
+  crearcompraForm = this.formbuilder.group({
+    nrofactura: ['', [Validators.required, Validators.maxLength(20)]],
+    proveedor: ['', [Validators.required, Validators.maxLength(20)]],
+    fechafactura: ['', [Validators.required, Validators.maxLength(100)]],
+    fechacompra: ['', [Validators.required, Validators.maxLength(100)]]
+    
+  })
+
+  editarcompras: boolean = false;
+
+  mostrarformulario(parameter:any=""){
+    this.editarcompras = true;
+    console.log(parameter);
+    this.compraForm.controls["idcompra"].setValue(parameter.idcompra);
+    this.compraForm.controls["nrofactura"].setValue(parameter.nrofactura);
+    this.compraForm.controls["proveedor"].setValue(parameter.proveedor);
+    this.compraForm.controls["fechafactura"].setValue(parameter.fechafactura);
+    this.compraForm.controls["fechacompra"].setValue(parameter.fechacompra);
+
+  }
+
+  delete(idcompra:any){
+    this.ComprasServices.eliminar(idcompra).subscribe(response =>{
+      console.log(response);
+      this.loadCompra();
+    })
+  }
+
+  update(){
+    this.ComprasServices.updateCompra(this.compraForm.value).subscribe(response =>{
+      console.log(response);
+      this.loadCompra();
+    })
+    
+  }
+
+  
+  //crear
+  crearcompra: boolean = false;
+  mostrarcrearformulario(){
+    this.crearcompra = !this.crearcompra;
+  }
+
+  crear(){
+    this.ComprasServices.crearCompra(this.crearcompraForm.value).subscribe(response => {
+      console.log(response);
+      this.loadCompra();
+    })
+  }
+
+  compras:any[] = []
+
+   add() {
+    console.log(this.compraForm.value)
+    this.compras.push(this.compraForm.value)
+    this.compraForm.reset();
+    
+   }
+
+   //crear
+   crearcompras:any[] = []
+
+   crea() {
+    console.log(this.crearcompraForm.value);
+    this.crearcompras.push(this.crearcompraForm.value);
+    this.crearcompraForm.reset();
+    
+   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private comprasService:ComprarService) { }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-  ngOnInit(): void {
-    this.comprasService.test().subscribe(parameter=>{
-      console.log(parameter)
-      this.dataSource = new MatTableDataSource<any>(parameter);
-      this.dataSource.paginator=this.paginator
+  constructor(public ComprasServices: ComprasService, private formbuilder: FormBuilder  ) { }
 
+
+
+  ngAfterViewInit() {
+
+  }
+  
+  ngOnInit(): void {
+    this.loadCompra();
+  }
+
+  loadCompra(){
+    this.ComprasServices.getCompras().subscribe(response => {
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator =this.paginator;
+      console.log(response);
     })
   }
   
 }
 
-export interface PeriodicElement {
-  idcompra: number;
-  nfactura: string;
-  fechafactura: number;
-  fechacompra: string;
-  proveedor: string;
-  totalcompra: string;
-}
 
-const parameter_DATA: PeriodicElement[] = [
-  
-  {idcompra: 1, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 2, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 3, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 4, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 5, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 6, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 7, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 8, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 9, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 10, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 11, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 12, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 13, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 14, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 15, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 16, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 17, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 18, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 19, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-  {idcompra: 20, nfactura: 'Hydrogen', fechafactura: 1.0079, fechacompra: 'H', proveedor: 'h', totalcompra: 'h'},
-
-
-];
