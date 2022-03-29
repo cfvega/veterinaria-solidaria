@@ -26,15 +26,27 @@ class VentasController {
         res.json({status: true, message: data[parseInt(idventa)]});
     }
     public async crear(req: Request, res: Response) {
-        console.log(req.body);
+        const p: any[] = req.body.productos;
+        delete req.body.productos;
+        
         const venta = req.params.venta;
-        const allventas = await query('INSERT into venta set ?', [req.body], (error: any, rows: any) =>{
-            if(error) return res.send(error)
+        const allventas = await query('INSERT into venta set ?', [req.body], async (error: any, rows: any) =>{
+            console.log(error)
+            if(error) return res.send(error);
+            const id = rows.insertId;
+            p.forEach(async (e) => {
+                await query("INSERT INTO detalleventa SET ?", {cantidad:e.cantidad,preciounitventa:e.precio,idproducto:e.idproducto,idventa:id})
+                const ptx = await query("SELECT stock from producto where ?", {idproducto: e.idproducto});
+                const nstock = ptx[0].stock - e.cantidad;
+                await query("UPDATE producto SET stock =? WHERE idproducto=?",[nstock, e.idproducto]);
+            });
 
-            res.json({msg:"venta creada"})
+            
+            res.json({status: true, msg:"venta creada"})
 
+            
         }
-        )
+        );
     }
 
     public async delete(req: Request, res: Response) {

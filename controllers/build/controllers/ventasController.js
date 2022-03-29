@@ -36,13 +36,22 @@ class VentasController {
     }
     crear(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
+            const p = req.body.productos;
+            delete req.body.productos;
             const venta = req.params.venta;
-            const allventas = yield (0, basedatos_1.default)('INSERT into venta set ?', [req.body], (error, rows) => {
+            const allventas = yield (0, basedatos_1.default)('INSERT into venta set ?', [req.body], (error, rows) => __awaiter(this, void 0, void 0, function* () {
+                console.log(error);
                 if (error)
                     return res.send(error);
-                res.json({ msg: "venta creada" });
-            });
+                const id = rows.insertId;
+                p.forEach((e) => __awaiter(this, void 0, void 0, function* () {
+                    yield (0, basedatos_1.default)("INSERT INTO detalleventa SET ?", { cantidad: e.cantidad, preciounitventa: e.precio, idproducto: e.idproducto, idventa: id });
+                    const ptx = yield (0, basedatos_1.default)("SELECT stock from producto where ?", { idproducto: e.idproducto });
+                    const nstock = ptx[0].stock - e.cantidad;
+                    yield (0, basedatos_1.default)("UPDATE producto SET stock =? WHERE idproducto=?", [nstock, e.idproducto]);
+                }));
+                res.json({ status: true, msg: "venta creada" });
+            }));
         });
     }
     delete(req, res) {

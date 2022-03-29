@@ -31,7 +31,7 @@ class ProductosController {
             const idproducto = req.params.idproducto;
             const allproductos = yield (0, basedatos_1.default)('SELECT * FROM producto WHERE idproducto=?', [idproducto]);
             console.log(idproducto);
-            res.json({ status: true, message: data[parseInt(idproducto)] });
+            res.json({ status: true, message: allproductos });
         });
     }
     crear(req, res) {

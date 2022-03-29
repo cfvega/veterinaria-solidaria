@@ -32,8 +32,7 @@ class ClientesController {
             const rutcliente = req.params.rutcliente;
             const allclientes = yield (0, basedatos_1.default)('SELECT * FROM cliente WHERE rutcliente=?', [rutcliente]);
             // const allclientes = data[(parseInt(rutcliente) )]
-            console.log(rutcliente);
-            res.json({ status: true, message: data[parseInt(rutcliente)] });
+            res.json({ status: true, message: allclientes[0] });
             // res.json({status: true, message: data[parseInt(rutcliente) -1]});
         });
     }

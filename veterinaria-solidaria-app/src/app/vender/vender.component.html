@@ -4,7 +4,7 @@
     
         <div class="row">
 
-            <div class="col-12 col-lg-8 bg-white" >
+            <div class="col-12 col-lg-8 bg-white pt-4 pb-4" >
                 <div class="row">
                     
                     <div class="col-12">
@@ -12,15 +12,15 @@
                                 
                                     
                                     <label class="form-label">Cliente</label>
-                                        <select class="form-select" >
+                                        <!-- <select class="form-select" >
                                             <option></option>
-                                        </select>
+                                        </select> -->
                                         <br>
                                         
                         
                                         <div class="input-group mb-3">
                                             <li for="rutcliente" class="input-group-text" >Rut</li>
-                                            <input id="rutcliente" type="text" class="form-control" placeholder="RUT..." formControlName="rutcliente" >
+                                            <input id="rutcliente" type="text" class="form-control" placeholder="RUT..." formControlName="rutcliente" (change)="loadClient($event.target)">
 
                                             <li for="nombrecli" class="input-group-text" >Nombre</li>
                                             <input id="nombrecli" type="text" class="form-control" placeholder="Nombre..." formControlName="nombrecli">
@@ -62,26 +62,7 @@
                     
                         <div class="col bg-white">
                                
-                                <table>
-                                    
-                                    <tr align="center"  >
-                                        <th>Id</th>   
-                                        <th>Cantidad</th>
-                                        <th>Productos</th>
-                                        <th>P.Unit</th>
-                                        <th>Subtotal</th>
-                                    </tr>
                                 
-                                    <tr *ngFor="let e of productos">
-                                        <td>{{e.idproducto}}</td>
-                                        <td>{{e.cantidad}}</td>
-                                        <td>{{e.nproducto}}</td>
-                                        <td>{{e.precio}}</td>
-                                        <td>{{e.cantidad*e.precio}}</td>
-                                    </tr>
-                                
-                                <br>                                    
-                                </table>    
                                 <br>
                                 <button type="button" class="btn btn-primary" (click)="mostrarformulario()">Agregar producto</button>
                                 
@@ -89,7 +70,7 @@
                                     <table>
                                         <div class="input-group mb-3">
                                             <li for="idproducto" class="input-group-text">Id:</li>
-                                            <input id="idproducto" type="text" class="form-control" formControlName="idproducto" placeholder="Id...">
+                                            <input id="idproducto" type="text" class="form-control" (change)="searchCodigo($event.target)" formControlName="idproducto" placeholder="Id...">
                                     
                                             <li for="nproducto" class="input-group-text">Nombre producto:</li>
                                             <input id="nproducto" type="text" class="form-control" formControlName="nproducto" placeholder="Nombre del producto...">
@@ -111,13 +92,34 @@
                     
                                     </table>
                                 </form>
+                                <br>
+                                <table>
+                                    
+                                    <tr align="center"  >
+                                        <th>Id</th>   
+                                        <th>Cantidad</th>
+                                        <th>Productos</th>
+                                        <th>P.Unit</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                
+                                    <tr *ngFor="let e of productos">
+                                        <td>{{e.idproducto}}</td>
+                                        <td>{{e.cantidad}}</td>
+                                        <td>{{e.nproducto}}</td>
+                                        <td>{{e.precio}}</td>
+                                        <td>{{e.cantidad*e.precio}}</td>
+                                    </tr>
+                                
+                                <br>                                    
+                                </table>    
 
                         </div>
                     
                 </div>        
         </div>
 
-                <div class="col-12 col-lg-4 bg-white">
+                <div class="col-12 col-lg-4 bg-white pt-4 pb-4">
 
                     <table>
                         
@@ -128,15 +130,15 @@
                             <div class="col-lg-6">
                                 <label class="form-label">Documento</label>
                                     <select class="form-select" formControlName="documento">
-                                        <option  value="boleta">Boleta</option>
-                                        <option  value="presupuesto">Presupuesto</option>
+                                        <option  value="0">Boleta</option>
+                                        <option  value="1">Presupuesto</option>
                                     </select>
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label" >Forma Pago</label>
                                     <select class="form-select" formControlName="formapago">
-                                        <option value="efectivo">Efectivo</option>
-                                        <option value="redcompra">Redcompra</option>
+                                        <option value="0">Efectivo</option>
+                                        <option value="1">Redcompra</option>
                                         
                                     </select>
                             </div>
@@ -173,3 +175,25 @@
 </form>
 </div>
 
+<button type="button" id="btnMODAL" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva Venta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <h1>VENTA REALIZADA</h1>
+          <img src="https://www.pngall.com/wp-content/uploads/2016/05/Ok-Download-PNG.png" alt="OK" width="25%">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -22,7 +22,7 @@ class ProductosController {
         const allproductos = await query('SELECT * FROM producto WHERE idproducto=?',[idproducto])
 
         console.log(idproducto);
-        res.json({status: true, message: data[parseInt(idproducto)]});
+        res.json({status: true, message: allproductos});
     }
     public async crear(req: Request, res: Response) {
         const producto = req.params.producto;

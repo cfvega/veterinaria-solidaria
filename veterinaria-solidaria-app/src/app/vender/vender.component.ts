@@ -16,9 +16,9 @@ export class VenderComponent implements OnInit {
     apellidomat: ['', [Validators.required, Validators.maxLength(20)]],
     telefono: ['', [Validators.required, Validators.maxLength(20)]],
     direccion: ['', [Validators.required, Validators.maxLength(20)]],
-    documento: ['',[Validators.required, Validators.maxLength(20)]],
-    formapago: ['',[Validators.required, Validators.maxLength(20)]],
-    ntransaccion: ['', [Validators.required, Validators.maxLength(20)]],
+    documento: ['0',[Validators.required, Validators.maxLength(20)]],
+    formapago: ['0',[Validators.required, Validators.maxLength(20)]],
+    ntransaccion: ['', [Validators.maxLength(20)]],
     totalventa: ['0'],
     
   })
@@ -61,8 +61,15 @@ export class VenderComponent implements OnInit {
   }
 
   personaSubmit(){
-    this.venderService.guardarVenta(this.personaForm.value).subscribe(d=>{
+    this.venderService.guardarVenta(this.personaForm.value, this.productos).subscribe(d=>{
       console.log(d);
+      if(d.status) {
+        this.personaForm.reset();
+        this.productos = [];
+        this.productoForm.reset();
+        this.agregaproducto = false;
+        document.getElementById('btnMODAL')?.click();
+      }
     })
     console.log(this.personaForm.value) 
   }
@@ -70,6 +77,31 @@ export class VenderComponent implements OnInit {
   productoSubmit(){
     console.log(this.productoForm.value)
     
+  }
+
+  loadClient(rutEvent: any) {
+    const rut = rutEvent.value;
+    this.venderService.getUsuario(rut).subscribe((resp:any) => {
+      this.personaForm.controls['nombrecli'].setValue(resp.message?.nombrecli);
+      this.personaForm.controls['apellidopat'].setValue(resp.message?.apellidopat);
+      this.personaForm.controls['apellidomat'].setValue(resp.message?.apellidomat);
+      this.personaForm.controls['telefono'].setValue(resp.message?.telefono);
+      this.personaForm.controls['direccion'].setValue(resp.message?.direccion);
+    });
+
+  }
+
+  searchCodigo(cod:any) {
+    const codigo = cod.value;
+    this.venderService.getProducto(codigo).subscribe(d=>{
+      console.log(d)
+      this.productoForm.controls['nproducto'].setValue(d.message[0].nombreprod)
+      this.productoForm.controls['precio'].setValue(d.message[0].precioprod)
+    //   idproducto: ['', [Validators.required]],
+    // nproducto: ['', [Validators.required]],
+    // cantidad: ['', [Validators.required]],
+    // precio: ['', [Validators.required]],
+    })
   }
 
 }

@@ -26,8 +26,8 @@ class ClientesController {
 
         // const allclientes = data[(parseInt(rutcliente) )]
 
-        console.log(rutcliente);
-        res.json({status: true, message: data[parseInt(rutcliente)]});
+        
+        res.json({status: true, message: allclientes[0]});
         // res.json({status: true, message: data[parseInt(rutcliente) -1]});
 
     }
